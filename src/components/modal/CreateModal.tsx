@@ -1,8 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-// import { useAppDispatch, useAppSelector } from "@/redux/hook";
-// import { addFood } from "@/redux/foodReducers";
-import TextField from '@mui/material/TextField';
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import TextField from "@mui/material/TextField";
 import { Box } from "@mui/material";
+import { addFood } from "@/redux/foodReducers";
 
 interface FoodItem {
   name: string;
@@ -11,11 +11,10 @@ interface FoodItem {
   image: string;
 }
 interface CreateModalProps {
-  closeModal: () => void;
+  closeCreateModal: () => void;
 }
-const CreateModal = ({ closeModal }: CreateModalProps) => {
-  // const dispatch = useAppDispatch();
-  // const foods = useAppSelector((state) => state.foodItems);
+const CreateModal = ({ closeCreateModal }: CreateModalProps) => {
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -24,10 +23,9 @@ const CreateModal = ({ closeModal }: CreateModalProps) => {
   } = useForm<FoodItem>();
 
   const onSubmit: SubmitHandler<FoodItem> = (data) => {
-    // event?.preventDefault();
     console.log(data);
-    // dispatch(addFood(data));
-    closeModal();
+    dispatch(addFood(data));
+    closeCreateModal();
   };
   return (
     <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -35,73 +33,76 @@ const CreateModal = ({ closeModal }: CreateModalProps) => {
         <h3 className="font-bold text-lg">Create a New Food Item</h3>
         <p className="py-4">Fill out the form to add a new food item.</p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-<Box>
-<TextField
-             sx={{width:"100%"}}
-        {...register("name", { required: "Name is required" })}
-          id="outlined-name-input"
-          label="Food Title"
-          type="text"
-        /> 
+          <Box>
+            <TextField
+              sx={{ width: "100%" }}
+              {...register("name", { required: "Name is required" })}
+              id="outlined-name-input"
+              label="Food Title"
+              type="text"
+            />
             {errors.name && (
               <span className="text-red-500">{errors.name.message}</span>
             )}
-</Box>
+          </Box>
 
-<Box>
-<TextField
-             sx={{width:"100%"}}
-             {...register("description", {
-              required: "Description is required",
-            })}
-          id="outlined-description-input"
-          label="Food Description"
-          type="text"
-          multiline
-          rows={2}
-        /> 
-          {errors.description && (
+          <Box>
+            <TextField
+              sx={{ width: "100%" }}
+              {...register("description", {
+                required: "Description is required",
+              })}
+              id="outlined-description-input"
+              label="Food Description"
+              type="text"
+              multiline
+              rows={2}
+            />
+            {errors.description && (
               <span className="text-red-500">{errors.description.message}</span>
             )}
-</Box>
+          </Box>
 
-         
-
-<Box>
-<TextField
-             sx={{width:"100%"}}
-             {...register("price", {
-              required: "Price is required",
-              valueAsNumber: true,
-            })}
-          id="outlined-name-input"
-          label="Food Price"
-          type="number"
-        /> 
-             {errors.price && (
+          <Box>
+            <TextField
+              sx={{ width: "100%" }}
+              {...register("price", {
+                required: "Price is required",
+                valueAsNumber: true,
+              })}
+              id="outlined-name-input"
+              label="Food Price"
+              type="number"
+            />
+            {errors.price && (
               <span className="text-red-500">{errors.price.message}</span>
             )}
-</Box>
-<Box>
-<TextField
-             sx={{width:"100%"}}
-             {...register("image", { required: "Image URL is required" })}
-          id="outlined-name-input"
-          label="Food Title"
-          type="text"
-        /> 
-          {errors.image && (
+          </Box>
+          <Box>
+            <TextField
+              sx={{ width: "100%" }}
+              {...register("image", { required: "Image URL is required" })}
+              id="outlined-name-input"
+              label="Food Title"
+              type="text"
+            />
+            {errors.image && (
               <span className="text-red-500">{errors.image.message}</span>
             )}
-</Box>
-
-
+          </Box>
 
           <div className="flex justify-end space-x-2">
-            <button type="button" className="px-2 py-1 rounded-md bg-red-200" onClick={closeModal}>
+            <button
+              type="button"
+              className="px-2 py-1 rounded-md bg-red-200"
+              onClick={closeCreateModal}
+            >
               Close
             </button>
-            <button type="submit" className=" px-2 py-1 rounded-md bg-green-200">
+            <button
+              type="submit"
+              className=" px-2 py-1 rounded-md bg-green-200"
+            >
               Submit
             </button>
           </div>
