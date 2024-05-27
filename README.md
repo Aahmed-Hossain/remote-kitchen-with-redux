@@ -1,13 +1,13 @@
-# Remote Kitchen a SaaS project.
+# Remote-Kitchen is a dynamic and responsive web application designed for managing food items in a virtual kitchen. Leveraging modern frontend technologies, Remote-Kitchen allows users to seamlessly add, update, and delete food items, providing an intuitive and efficient user experience. This application is built using Next.js, TypeScript, Redux, Material UI, React Hook Form, React-Toastify, and TailwindCSS, ensuring a robust and visually appealing interface.
 
 ## [Live Link](https://remote-kitchen.vercel.app/)
 
 ## Table of Contents
 
-- [Questions Answers](#questions-answers)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
 - [Installation](#installation)
+- [Questions Answers](#questions-answers)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
 - [Landing Page](#landing-page)
 - [Landing page SM](#landing-page-sm)
 
@@ -78,6 +78,18 @@ By this dummy data structure a smart approach to categorize menu items within a 
 - If a match is found (meaning the id of a menu item matches the menuItemId), the menu item object is appended to the list associated with the current category name in the category_items dictionary.
 - Output: After processing all Menu collections and their categories, the category_items dictionary stores the final results.  Each key in the dictionary represents a category name.The value corresponding to each key is a list containing the menu items (name and id) that belong to that particular category.
 
+## Key Features
+#### Add Food Item:
+- Users can add new food items to the kitchen inventory.
+- The form for adding items is built using React Hook Form for efficient state management and validation.
+- Instant feedback is provided via React-Toastify notifications.
+#### Update Food Item:
+- Users can edit existing food items
+- Updates are managed through Redux dispatch actions, ensuring a predictable state transition.
+- Responsive UI ensures smooth editing experience across devices.
+#### Delete Food Item:
+- Users can remove food items from the Food list.
+- Confirmation prompts and notifications enhance user experience.
 
 
 ## Tech Stack
