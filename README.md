@@ -1,4 +1,4 @@
-# Remote-Kitchen is a dynamic and responsive web application designed for managing food items in a virtual kitchen. Leveraging modern frontend technologies, Remote-Kitchen allows users to seamlessly add, update, and delete food items, providing an intuitive and efficient user experience. This application is built using Next.js, TypeScript, Redux, Material UI, React Hook Form, React-Toastify, and TailwindCSS, ensuring a robust and visually appealing interface.
+#### Remote-Kitchen is a dynamic and responsive web application designed for managing food items in a virtual kitchen. Leveraging modern frontend technologies, Remote-Kitchen allows users to seamlessly add, update, and delete food items, providing an intuitive and efficient user experience. This application is built using Next.js, TypeScript, Redux, Material UI, React Hook Form, React-Toastify, and TailwindCSS, ensuring a robust and visually appealing interface.
 
 ## [Live Link](https://remote-kitchen.vercel.app/)
 
