@@ -1,8 +1,10 @@
-import React from 'react'
+"use client";
+import { useState } from "react";
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import AddIcon from '@mui/icons-material/Add';
 const Appbar = () => {
+ 
   return (
     <div className='border-b flex justify-between items-center h-12'>
         <div>
@@ -10,6 +12,7 @@ const Appbar = () => {
         </div>
         <div>
         <Button variant="contained"><AddIcon/>  Add New Food</Button>
+
         </div>
     </div>
   )

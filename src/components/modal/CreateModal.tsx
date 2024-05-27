@@ -1,7 +1,6 @@
-import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { addFood } from "@/redux/reducers/foodReducer";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { addFood } from "@/redux/foodReducers";
 interface FoodItem {
   name: string;
   description: string;

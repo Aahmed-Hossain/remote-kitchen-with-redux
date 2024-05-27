@@ -1,3 +1,4 @@
+"use client"
 import Appbar from '../components/appbar/Appbar'
 
 export default function Home() {
