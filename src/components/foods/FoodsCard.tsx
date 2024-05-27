@@ -5,9 +5,11 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpdateIcon from '@mui/icons-material/Update';
+import { useState } from 'react';
+import UpdateModal from "../modal/UpdateModal";
 
 interface Food{
-        id: number;
+        id?: number;
         name: string;
         description: string;
         price: number;
@@ -18,6 +20,20 @@ interface FoodsCardProps {
   }
 const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
     const {name, description, price, image} = food;
+
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [currentFoodItem, setCurrentFoodItem] = useState<Food | null>(null);
+
+    const openUpdateModal = (foodItem:Food ) => {
+      setCurrentFoodItem(foodItem);
+      console.log(foodItem)
+      setShowUpdateModal(true);
+    };
+    const closeUpdateModal = () => {
+      setCurrentFoodItem(null);
+      setShowUpdateModal(false);
+    };
+
   return (
     <div>
         <Card sx={{ maxWidth: 800 }}>
@@ -42,9 +58,19 @@ const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
         </CardContent>
       </CardActionArea>
       <CardActions sx={{direction: 'flex', justifyContent: 'center',marginBottom: '10px', gap:'5px'}}>
-        <Button  variant="outlined" startIcon={<UpdateIcon/>} color="primary">
+        <Button onClick={() => openUpdateModal(food)}variant="outlined" startIcon={<UpdateIcon/>} color="primary">
           Update
         </Button>
+
+        {showUpdateModal && (
+        <UpdateModal
+        closeUpdateModal={closeUpdateModal}
+        currentFoodItem={currentFoodItem}
+      
+        />
+      )}
+
+
         <Button  variant="outlined" startIcon={<DeleteIcon />}  color="error">
           Delete
         </Button>

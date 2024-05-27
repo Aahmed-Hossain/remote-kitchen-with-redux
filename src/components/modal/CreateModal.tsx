@@ -23,7 +23,7 @@ const CreateModal = ({ closeCreateModal }: CreateModalProps) => {
   } = useForm<FoodItem>();
 
   const onSubmit: SubmitHandler<FoodItem> = (data) => {
-    console.log(data);
+    // console.log(data);
     dispatch(addFood(data));
     closeCreateModal();
   };
@@ -73,6 +73,7 @@ const CreateModal = ({ closeCreateModal }: CreateModalProps) => {
               id="outlined-name-input"
               label="Food Price"
               type="number"
+              inputProps={{ step: "0.01" }}
             />
             {errors.price && (
               <span className="text-red-500">{errors.price.message}</span>
