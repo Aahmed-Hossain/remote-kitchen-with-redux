@@ -24,11 +24,11 @@ npm run dev
 #### Question_1: A project titled, “Alex’s Kitchen” from team "Remote Kitchen" uses Git for version control. Several developers are contributing, with each working on their own branch. The team follows certain conventions. Suppose you need to submit a hotfix. How would you name your branch? After finalizing your work in your designated branch, detail the steps you would take to create a PR and merge it with the production branch.
 
 Answer: I should move forward by following common conventions for bug fixing i'm describing steps by steps.
-(I) Create hotfix branch from production branch as the production branch is the base branch by ```bash git checkout -b hotfix ```
+(I) Create hotfix branch from production branch as the production branch is the base branch by git checkout -b hotfix 
 (II) After making changes for fixing the issue on the branch I should push the changes to the remote by 
-```bash git add .
+git add .
 git commit -m 'chore: jwt auth issue fixes'
-git push origin hotfix ```
+git push origin hotfix 
 
 (III) Then I should create a pull request by checking the fixed issue on local m/c. Then I should move on gitHub for creating a pull request hotfix to production branch
 (IV)  Then I should wait for the Review.
@@ -36,10 +36,8 @@ git push origin hotfix ```
 
 By these steps a bug can be solved in a team project.
 
-#### Question_2: In a Digital Kitchen, we have an array of Menu collections. Each collection is an object of Menu. And contains two properties alongside with various properties of Menu. Which are, menuItems (which is an array of objects. Each object has a unique identifier) and, categories. Categories itself is an array of objects. In each object inside categories, there is one property (an array of int’s) called, menuItemsIds.
-Find out the specific items that belongs to each category.
-Take a reference from below code snippet,
-const dummyArr = [ {
+#### Question_2: In a Digital Kitchen, we have an array of Menu collections. Each collection is an object of Menu. And contains two properties alongside with various properties of Menu. Which are, menuItems (which is an array of objects. Each object has a unique identifier) and, categories. Categories itself is an array of objects. In each object inside categories, there is one property (an array of int’s) called, menuItemsIds. Find out the specific items that belongs to each category. Take a reference from below code snippet,
+**const dummyArr = [ {
       type: "Vegetarian",
       menuItems: [
         {id: 1, name: "Salad"},
@@ -64,7 +62,7 @@ const dummyArr = [ {
       }]
     }
 ]
-Discuss the conceptual approach. Explain, how you will resolve this or get the data based on the conditions where id’s are being matched, keeping aside the specifics of coding.
+Discuss the conceptual approach. Explain, how you will resolve this or get the data based on the conditions where id’s are being matched, keeping aside the specifics of coding.**
 
 Answer: 
 By this dummy data structure a smart approach to categorize menu items within a digital kitchen system.
@@ -79,8 +77,6 @@ By this dummy data structure a smart approach to categorize menu items within a 
 - It searches through the menuItems array of the Menu collection to find a matching id.
 - If a match is found (meaning the id of a menu item matches the menuItemId), the menu item object is appended to the list associated with the current category name in the category_items dictionary.
 - Output: After processing all Menu collections and their categories, the category_items dictionary stores the final results.  Each key in the dictionary represents a category name.The value corresponding to each key is a list containing the menu items (name and id) that belong to that particular category.
-
-
 
 
 
