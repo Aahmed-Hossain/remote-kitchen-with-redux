@@ -7,6 +7,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import UpdateIcon from '@mui/icons-material/Update';
 import { useState } from 'react';
 import UpdateModal from "../modal/UpdateModal";
+import { deletefood } from "@/redux/foodReducers";
+import { useAppDispatch } from "@/redux/hook";
 
 interface Food{
         id?: number;
@@ -19,20 +21,25 @@ interface FoodsCardProps {
     food: Food;
   }
 const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
-    const {name, description, price, image} = food;
-
+    const {id, name, description, price, image} = food;
+    
     const [showUpdateModal, setShowUpdateModal] = useState(false);
     const [currentFoodItem, setCurrentFoodItem] = useState<Food | null>(null);
+    const dispatch = useAppDispatch();
 
     const openUpdateModal = (foodItem:Food ) => {
       setCurrentFoodItem(foodItem);
-      console.log(foodItem)
+      // console.log(foodItem)
       setShowUpdateModal(true);
     };
     const closeUpdateModal = () => {
       setCurrentFoodItem(null);
       setShowUpdateModal(false);
     };
+    
+    const handleDelete=(id: number | undefined)=>{
+      dispatch(deletefood({id:id}))
+    }
 
   return (
     <div>
@@ -70,8 +77,7 @@ const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
         />
       )}
 
-
-        <Button  variant="outlined" startIcon={<DeleteIcon />}  color="error">
+        <Button onClick={()=>handleDelete(id)}  variant="outlined" startIcon={<DeleteIcon />}  color="error">
           Delete
         </Button>
       </CardActions>

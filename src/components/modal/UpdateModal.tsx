@@ -6,7 +6,7 @@ import { updateFood } from "@/redux/foodReducers";
 
 interface UpdateModalProps {
       closeUpdateModal: () => void;
-  currentFoodItem: FoodItem ;
+currentFoodItem: FoodItem | null; 
 }
 
 interface FoodItem {
@@ -19,26 +19,29 @@ interface FoodItem {
 
 const UpdateModal: React.FC<UpdateModalProps> = ({ closeUpdateModal,currentFoodItem }) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FoodItem>({
-    defaultValues: currentFoodItem
+    defaultValues: currentFoodItem || {} as FoodItem 
   });
   const dispatch=useAppDispatch()
 
-  React.useEffect(() => {
-    reset(currentFoodItem);
+React.useEffect(() => {
+    if (currentFoodItem) {
+      reset(currentFoodItem);
+    }
   }, [currentFoodItem, reset]);
 
   const onSubmit: SubmitHandler<FoodItem> = (data) => {
-//    
-console.log(data)
+
+// console.log(data)
+
 dispatch(updateFood(data))
 closeUpdateModal();
   };
-  const foodTitle = currentFoodItem.name
+  if (!currentFoodItem) return null; 
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className=" bg-white rounded-md shadow-lg px-6 md:px-16  py-4 md:py-6 w-[20rem] md:w-[28rem]">
-        <h3 className="font-bold text-lg mb-4">Update The {foodTitle}</h3>
+        <h3 className="font-bold text-lg mb-4">Update The {currentFoodItem.name}</h3>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
           <Box>
@@ -116,56 +119,6 @@ closeUpdateModal();
             </button>
           </div>
         </form>
-
-
-
-
-
-
-
-        {/* <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <label className="block">Name</label>
-            <input
-              {...register("name", { required: "Name is required" })}
-              className="w-full p-2 border rounded"
-              type="text"
-            />
-            {errors.name && <span className="text-red-500">{errors.name.message}</span>}
-          </div>
-          <div>
-            <label className="block">Description</label>
-            <input
-              {...register("description", { required: "Description is required" })}
-              className="w-full p-2 border rounded"
-              type="text"
-            />
-            {errors.description && <span className="text-red-500">{errors.description.message}</span>}
-          </div>
-          <div>
-            <label className="block">Price</label>
-            <input
-              {...register("price", { required: "Price is required", valueAsNumber: true })}
-              className="w-full p-2 border rounded"
-              type="number"
-              step="0.01"
-            />
-            {errors.price && <span className="text-red-500">{errors.price.message}</span>}
-          </div>
-          <div>
-            <label className="block">Image URL</label>
-            <input
-              {...register("image", { required: "Image URL is required" })}
-              className="w-full p-2 border rounded"
-              type="text"
-            />
-            {errors.image && <span className="text-red-500">{errors.image.message}</span>}
-          </div>
-          <div className="flex justify-end space-x-2">
-            <button type="button" className="btn" onClick={closeUpdateModal}>Close</button>
-            <button type="submit" className="btn btn-primary">Update</button>
-          </div>
-        </form> */}
       </div>
     </div>
   );
