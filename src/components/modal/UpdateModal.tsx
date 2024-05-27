@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "@/redux/hook";
 import { Box, TextField } from "@mui/material";
 import { updateFood } from "@/redux/foodReducers";
+import { toast } from "react-toastify";
 
 interface UpdateModalProps {
       closeUpdateModal: () => void;
@@ -29,14 +30,18 @@ React.useEffect(() => {
     }
   }, [currentFoodItem, reset]);
 
+// to solve ts warnings
+  if (!currentFoodItem) return null; 
+
   const onSubmit: SubmitHandler<FoodItem> = (data) => {
 
 // console.log(data)
 
 dispatch(updateFood(data))
+toast.success(`Updated the ${currentFoodItem.name}`)
 closeUpdateModal();
   };
-  if (!currentFoodItem) return null; 
+
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
