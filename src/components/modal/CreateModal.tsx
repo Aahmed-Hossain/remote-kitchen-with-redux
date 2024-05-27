@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import TextField from "@mui/material/TextField";
 import { Box } from "@mui/material";
 import { addFood } from "@/redux/foodReducers";
+import { toast } from "react-toastify";
 
 interface FoodItem {
   name: string;
@@ -25,12 +26,13 @@ const CreateModal = ({ closeCreateModal }: CreateModalProps) => {
   const onSubmit: SubmitHandler<FoodItem> = (data) => {
     // console.log(data);
     dispatch(addFood(data));
+    toast.success(`Added the Food: ${data.name}`)
     closeCreateModal();
   };
   return (
     <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-md shadow-lg px-6 md:px-16  py-4 md:py-6">
-        <h3 className="font-bold text-lg">Create a New Food Item</h3>
+        <h3 className="font-bold text-lg">Create New Food Item</h3>
         <p className="py-4">Fill out the form to add a new food item.</p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <Box>

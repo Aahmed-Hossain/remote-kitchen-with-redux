@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { persistStore } from 'redux-persist'
+// import {  persistReducer, persistStore } from 'redux-persist'
 // import storage from "redux-persist/lib/storage";
 import foodReducers from "./foodReducers";
 
@@ -7,12 +7,14 @@ import foodReducers from "./foodReducers";
 //   key: "root",
 //   storage,
 // };
+// const persistedReducer = persistReducer(persistConfig, foodReducers);
 export const store = configureStore({
   reducer: {
     foodItems: foodReducers,
   },
 });
+
+// export const persistor = persistStore(store);
 export type AppStore = typeof store;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
-// export const persistor = persistStore(store)

@@ -14,15 +14,13 @@ const Appbar = () => {
   };
 
 
-
- 
   return (
     <div className='border-b flex justify-between items-center h-12'>
         <div>
-          <Link href={'/'}> <h2 className='text-lg md:text-2xl font-bold'> Remote<span className='text-[#1976D2]'>Kitchen</span></h2></Link>
+          <Link href={'/'}> <h2 className='text-lg md:text-2xl font-bold'> Remote<span className='text-[#1A237E]'>Kitchen</span></h2></Link>
         </div>
         <div>
-        <Button onClick={openCreateModal} variant="contained"> <AddIcon/> <span className="hidden md:block">Add New Food</span>
+        <Button onClick={openCreateModal} variant="contained" sx={{ backgroundColor: '#1A237E'}}> <AddIcon/> <span className="hidden md:block">Add New Food</span>
         </Button>
         {showCreateModal && <CreateModal closeCreateModal={closeCreateModal} />}
 

@@ -6,6 +6,9 @@ import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { persistor } from "@/redux/store";
+// import { PersistGate } from 'redux-persist/integration/react';
+
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -22,13 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
     <Provider store={store}>
-    {children}
+      {children}
     </Provider>
-
-
-
-
-
     <ToastContainer 
 position="top-right"
 autoClose={1000}

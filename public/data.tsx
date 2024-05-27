@@ -9,7 +9,7 @@ export const foodList=[
     {
         "id": 2,
         "name": "Veggie Burger",
-        "description": "A delicious veggie patty with lettuce, tomato, and cheese",
+        "description": "A delicious veggie patty with lettuce, tomato, and cheese tomato, and cheese",
         "price": 5.49,
         "image": "https://i.ibb.co/qJJXzTX/steak1.jpg"
     },

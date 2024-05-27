@@ -9,6 +9,7 @@ import { useState } from 'react';
 import UpdateModal from "../modal/UpdateModal";
 import { deletefood } from "@/redux/foodReducers";
 import { useAppDispatch } from "@/redux/hook";
+import { toast } from "react-toastify";
 
 interface Food{
         id?: number;
@@ -36,8 +37,9 @@ const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
       setCurrentFoodItem(null);
       setShowUpdateModal(false);
     };
-    
+
     const handleDelete=(id: number | undefined)=>{
+      toast.error(`Deleted the Food: ${name}`)
       dispatch(deletefood({id:id}))
     }
 
