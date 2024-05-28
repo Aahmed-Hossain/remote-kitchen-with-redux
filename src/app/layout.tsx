@@ -37,7 +37,7 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
-theme="light" />
+theme="dark" />
         </body>
     </html>
   );

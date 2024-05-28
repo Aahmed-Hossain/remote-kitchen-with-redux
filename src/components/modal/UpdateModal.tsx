@@ -38,7 +38,7 @@ React.useEffect(() => {
 // console.log(data)
 
 dispatch(updateFood(data))
-toast.success(`Updated the: ${currentFoodItem.name}`)
+toast.success(`Updated the Food: ${currentFoodItem.name}`)
 closeUpdateModal();
   };
 

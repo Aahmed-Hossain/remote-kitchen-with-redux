@@ -43,6 +43,38 @@ const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
       dispatch(deletefood({id:id}))
     }
 
+    const confirmDelete = (id:number | undefined) => {
+      toast.warn(
+        <div>
+          <p>{`Do you really want to delete ${name}?`}</p>
+          <div className="flex gap-4">
+            <button
+              className="bg-red-300 px-3 my-2 rounded-md"
+              onClick={() => handleDelete(id)}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-green-300 px-3 my-2 rounded-md"
+              onClick={() => toast.dismiss}
+            >
+              No
+            </button>
+          </div>
+        </div>,
+
+{
+  position: "top-center",
+  autoClose: false,
+  closeOnClick: true,
+  closeButton: true,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+}
+      );
+    };
+
   return (
     <div>
         <Card sx={{ maxWidth: 800 }}>
@@ -79,7 +111,7 @@ const FoodsCard: React.FC<FoodsCardProps> = ({food}) => {
         />
       )}
 
-        <Button onClick={()=>handleDelete(id)}  variant="outlined" startIcon={<DeleteIcon />}  color="error">
+        <Button onClick={()=>confirmDelete(id)}  variant="outlined" startIcon={<DeleteIcon />}  color="error">
           Delete
         </Button>
       </CardActions>
