@@ -16,7 +16,6 @@ const Footer = () => {
           <Link href={"/"} className="flex items-center justify-center gap-3">
             <Image src={logo} width={50} height={50} alt="logo" />
             <h2 className="text-lg md:text-xl font-bold">
-              {" "}
               Remote<span className="text-[#1A237E]">Kitchen</span>
             </h2>
           </Link>
@@ -46,15 +45,7 @@ const Footer = () => {
 <Link href={'https://ahmed-portfolio.vercel.app'} target="_blank"> 
 <LanguageIcon sx={{color: '#1A237E'}}/>
 </Link>
-<Link href={'https://www.linkedin.com/in/ahmed-hossain-57aab42a8'} target="_blank"> 
-<LinkedInIcon sx={{color: '#1A237E'}}/>
-</Link>
-<Link href={'https://discord.com/users/1185772452031238311'} target="_blank"> 
-<SpatialTrackingIcon sx={{color: '#1A237E'}}/>
-</Link>
-<Link href={'mailto:ahmed.hsn.404@gmail.com'} target="_blank"> 
-<AttachEmailIcon sx={{color: '#1A237E'}}/>
-</Link>
+
 </p>
         </div>
       </div>

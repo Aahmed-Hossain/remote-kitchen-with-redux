@@ -25,26 +25,14 @@ const Appbar = () => {
           <Link href={'/'}> <h2 className='text-lg md:text-2xl font-bold'> Remote<span className='text-[#1A237E]'>Kitchen</span></h2></Link>
         </div>
 
-
         <div className="flex justify-center gap-2 md:gap-4 lg:gap-6">
-  
+
 <Link href={'https://github.com/Aahmed-Hossain'} target="_blank"> 
 <GitHubIcon sx={{color: '#1A237E'}}/>
 </Link>
 <Link href={'https://ahmed-portfolio.vercel.app'} target="_blank"> 
 <LanguageIcon sx={{color: '#1A237E'}}/>
 </Link>
-<Link className="hidden md:block" href={'https://www.linkedin.com/in/ahmed-hossain-57aab42a8'} target="_blank"> 
-<LinkedInIcon sx={{color: '#1A237E'}}/>
-</Link>
-<Link className="hidden md:block" href={'https://discord.com/users/1185772452031238311'} target="_blank"> 
-<SpatialTrackingIcon sx={{color: '#1A237E'}}/>
-</Link>
-<Link className="hidden md:block" href={'mailto:ahmed.hsn.404@gmail.com'} target="_blank"> 
-<AttachEmailIcon sx={{color: '#1A237E'}}/>
-</Link>
-
-
         </div>
 
 
